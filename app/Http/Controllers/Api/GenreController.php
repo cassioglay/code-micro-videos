@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Category;
+use App\Models\Genre;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\GenreRequest;
 
-use App\Http\Requests\CategoryRequest;
-
-class CategoryController extends Controller
+class GenreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return Category::all();
+        return Genre::all();
     }
 
     /**
@@ -25,45 +24,45 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryRequest $request)
+    public function store(GenreRequest $request)
     {
-        return Category::create($request->all());
+        return Genre::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Genre $genre)
     {
-        return $category;
+        return $genre;
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryRequest $request, Category $category)
+    public function update(GenreRequest $request, Genre $genre)
     {
-        $category->update($request->all());
+        $genre->update($request->all());
 
-        return $category;
+        return $genre;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Genre $genre)
     {
-        $category->delete();
+        $genre->delete();
 
         return response()->noContent();
     }
