@@ -16,4 +16,6 @@ class Genre extends Model
     ];
     protected $date = ['deleted_at'];
     protected $casts = ['id' => 'string'];
+
+    public $incrementing = false;
 }
